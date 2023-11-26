@@ -10,7 +10,6 @@ from multiprocessing import Lock, Pool
 import mmcv
 import numpy as np
 
-
 def extract_frame(vid_item):
     """Generate optical flow using dense flow.
 
@@ -72,47 +71,47 @@ def extract_frame(vid_item):
         else:
             if args.new_short == 0:
                 cmd = osp.join(
-                    f"denseflow '{full_path}' -b=20 -s=0 -o='{out_full_path}'"
+                    f"{os.path.expanduser('~')}/app/bin/denseflow '{full_path}' -b=20 -s=0 -o='{out_full_path}'"
                     f' -nw={args.new_width} -nh={args.new_height} -v')
             else:
                 cmd = osp.join(
-                    f"denseflow '{full_path}' -b=20 -s=0 -o='{out_full_path}'"
+                    f"{os.path.expanduser('~')}/app/bin/denseflow '{full_path}' -b=20 -s=0 -o='{out_full_path}'"
                     f' -ns={args.new_short} -v')
             run_success = os.system(cmd)
     elif task == 'flow':
         if args.input_frames:
             if args.new_short == 0:
                 cmd = osp.join(
-                    f"denseflow '{full_path}' -a={method} -b=20 -s=1 -o='{out_full_path}'"  # noqa: E501
+                    f"{os.path.expanduser('~')}/app/bin/denseflow '{full_path}' -a={method} -b=20 -s=1 -o='{out_full_path}'"  # noqa: E501
                     f' -nw={args.new_width} --nh={args.new_height} -v --if')
             else:
                 cmd = osp.join(
-                    f"denseflow '{full_path}' -a={method} -b=20 -s=1 -o='{out_full_path}'"  # noqa: E501
+                    f"{os.path.expanduser('~')}/app/bin/denseflow '{full_path}' -a={method} -b=20 -s=1 -o='{out_full_path}'"  # noqa: E501
                     f' -ns={args.new_short} -v --if')
         else:
             if args.new_short == 0:
                 cmd = osp.join(
-                    f"denseflow '{full_path}' -a={method} -b=20 -s=1 -o='{out_full_path}'"  # noqa: E501
+                    f"{os.path.expanduser('~')}/app/bin/denseflow '{full_path}' -a={method} -b=20 -s=1 -o='{out_full_path}'"  # noqa: E501
                     f' -nw={args.new_width} --nh={args.new_height} -v')
             else:
                 cmd = osp.join(
-                    f"denseflow '{full_path}' -a={method} -b=20 -s=1 -o='{out_full_path}'"  # noqa: E501
+                    f"{os.path.expanduser('~')}/app/bin/denseflow '{full_path}' -a={method} -b=20 -s=1 -o='{out_full_path}'"  # noqa: E501
                     f' -ns={args.new_short} -v')
         run_success = os.system(cmd)
     else:
         if args.new_short == 0:
             cmd_rgb = osp.join(
-                f"denseflow '{full_path}' -b=20 -s=0 -o='{out_full_path}'"
+                f"{os.path.expanduser('~')}/app/bin/denseflow '{full_path}' -b=20 -s=0 -o='{out_full_path}'"
                 f' -nw={args.new_width} -nh={args.new_height} -v')
             cmd_flow = osp.join(
-                f"denseflow '{full_path}' -a={method} -b=20 -s=1 -o='{out_full_path}'"  # noqa: E501
+                f"{os.path.expanduser('~')}/app/bin/denseflow '{full_path}' -a={method} -b=20 -s=1 -o='{out_full_path}'"  # noqa: E501
                 f' -nw={args.new_width} -nh={args.new_height} -v')
         else:
             cmd_rgb = osp.join(
-                f"denseflow '{full_path}' -b=20 -s=0 -o='{out_full_path}'"
+                f"{os.path.expanduser('~')}/app/bin/denseflow '{full_path}' -b=20 -s=0 -o='{out_full_path}'"
                 f' -ns={args.new_short} -v')
             cmd_flow = osp.join(
-                f"denseflow '{full_path}' -a={method} -b=20 -s=1 -o='{out_full_path}'"  # noqa: E501
+                f"{os.path.expanduser('~')}/app/bin/denseflow '{full_path}' -a={method} -b=20 -s=1 -o='{out_full_path}'"  # noqa: E501
                 f' -ns={args.new_short} -v')
         run_success_rgb = os.system(cmd_rgb)
         run_success_flow = os.system(cmd_flow)
@@ -133,7 +132,6 @@ def extract_frame(vid_item):
         sys.stdout.flush()
 
     return True
-
 
 def parse_args():
     parser = argparse.ArgumentParser(description='extract optical flows')

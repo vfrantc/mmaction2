@@ -35,7 +35,9 @@ def generate_rawframes_filelist():
     def count_frames(dir_list, video):
         for dir_name in dir_list:
             if video in dir_name:
-                return osp.basename(dir_name), len(os.listdir(dir_name))
+                print(f"Counting files from: {dir_name}")
+                rgb_filtered_files = [f for f in os.listdir(dir_name) if not f.startswith("flow")]
+                return osp.basename(dir_name), len(rgb_filtered_files)
         return None, None
 
     database = load_dict['database']
