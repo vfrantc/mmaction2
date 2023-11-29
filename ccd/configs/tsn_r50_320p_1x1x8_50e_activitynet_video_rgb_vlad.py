@@ -104,6 +104,6 @@ test_evaluator = val_evaluator
 optimizer = dict(type='SGD', lr=0.001, momentum=0.9, weight_decay=0.0001)
 
 # runtime settings
-work_dir = '/content/drive/MyDrive/3_Research_Replication/MMAction_V1/Our_Data/TSN_Files/rgb_checkpoints/'
+work_dir = './rgb_checkpoints/'
 load_from = ('https://download.openmmlab.com/mmaction/recognition/tsn/tsn_r50_320p_1x1x8_100e_kinetics400_rgb/tsn_r50_320p_1x1x8_100e_kinetics400_rgb_20200702-ef80e3d7.pth')
 # load_from = '/content/mmaction2/data/ActivityNet/tsn_r50_320p_1x1x8_100e_kinetics400_rgb_20200702-ef80e3d7.pth'
