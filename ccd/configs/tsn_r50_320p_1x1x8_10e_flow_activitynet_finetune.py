@@ -5,7 +5,7 @@ _base_ = ['/content/mmaction2/configs/_base_/models/tsn_r50.py',
 # model settings
 # ``in_channels`` should be 2 * clip_len
 model = dict(
-    backbone=dict(in_channels=10),
+    backbone=dict(in_channels=2),
     cls_head=dict(num_classes=2, dropout_ratio=0.8),
     data_preprocessor=dict(
         type='ActionDataPreprocessor',
