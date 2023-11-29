@@ -7,7 +7,7 @@ data_file = './data/ActivityNet'
 video_list = f'{data_file}/video_info_new.csv'
 anno_file = f'{data_file}/anet_anno_action.json'
 rawframe_dir = f'{data_file}/rawframes'
-action_name_list = 'action_name.csv'
+action_name_list = './tools/data/activitynet/action_name.csv'
 
 train_rawframe_dir = rawframe_dir
 val_rawframe_dir = rawframe_dir
