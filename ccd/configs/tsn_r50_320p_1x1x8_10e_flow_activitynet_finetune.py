@@ -79,7 +79,7 @@ val_dataloader = dict(
     dataset=dict(
         type=dataset_type,
         ann_file=ann_file_val,
-        data_prefix=data_root_val,
+        data_prefix=dict(img=data_root_val),
         filename_tmpl='flow_{}_{:05d}.jpg',
         modality='Flow',
         start_index=0,
@@ -95,7 +95,7 @@ test_dataloader = dict(
     dataset=dict(
         type=dataset_type,
         ann_file=ann_file_test,
-        data_prefix=data_root_val,
+        data_prefix=dict(img=data_root_val),
         filename_tmpl='flow_{}_{:05d}.jpg',
         with_offset=True,
         modality='Flow',
