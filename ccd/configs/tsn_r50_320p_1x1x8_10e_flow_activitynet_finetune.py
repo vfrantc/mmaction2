@@ -23,7 +23,7 @@ ann_file_val = 'data/ActivityNet/anet_val_video.txt'
 ann_file_test = 'data/ActivityNet/anet_val_clip.txt'
 # img_norm_cfg = dict(mean=[128, 128], std=[128, 128])
 train_pipeline = [
-    dict(type='SampleFrames', clip_len=5, frame_interval=1, num_clips=8),
+    dict(type='SampleFrames', clip_len=1, frame_interval=1, num_clips=8),
     dict(type='RawFrameDecode'),
     dict(type='Resize', scale=(-1, 256)),
     dict(type='RandomResizedCrop'),
