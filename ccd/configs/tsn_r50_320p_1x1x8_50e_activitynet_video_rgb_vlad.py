@@ -70,7 +70,7 @@ train_dataloader = dict(
     dataset=dict(
         type=dataset_type,
         ann_file=ann_file_train,
-        data_prefix=[data_root],
+        data_prefix=dict(img=data_root),
         pipeline=train_pipeline))
 
 val_dataloader = dict(
@@ -81,7 +81,7 @@ val_dataloader = dict(
     dataset=dict(
         type=dataset_type,
         ann_file=ann_file_val,
-        data_prefix=[data_root_val],
+        data_prefix=dict(img=data_root_val),
         pipeline=val_pipeline,
         test_mode=True))
 
@@ -93,7 +93,7 @@ test_dataloader = dict(
     dataset=dict(
         type=dataset_type,
         ann_file=ann_file_test,
-        data_prefix=[data_root_val],
+        data_prefix=dict(img=data_root_val),
         pipeline=test_pipeline,
         test_mode=True))
 
