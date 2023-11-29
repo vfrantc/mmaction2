@@ -24,7 +24,7 @@ train_pipeline = [
     dict(type='Resize', scale=(224, 224), keep_ratio=False),
     dict(type='Flip', flip_ratio=0.5),
     dict(type='Normalize', **img_norm_cfg),
-    dict(type='FormatShape', input_format='NCHW_Flow'),
+    dict(type='FormatShape', input_format='NCHW'),
     dict(type='PackActionInputs'),
 ]
 val_pipeline = [
@@ -38,7 +38,7 @@ val_pipeline = [
     dict(type='Resize', scale=(-1, 256)),
     dict(type='CenterCrop', crop_size=224),
     dict(type='Normalize', **img_norm_cfg),
-    dict(type='FormatShape', input_format='NCHW_Flow'),
+    dict(type='FormatShape', input_format='NCHW'),
     dict(type='PackActionInputs'),
 ]
 test_pipeline = [
@@ -52,7 +52,7 @@ test_pipeline = [
     dict(type='Resize', scale=(-1, 256)),
     dict(type='TenCrop', crop_size=224),
     dict(type='Normalize', **img_norm_cfg),
-    dict(type='FormatShape', input_format='NCHW_Flow'),
+    dict(type='FormatShape', input_format='NCHW'),
     dict(type='PackActionInputs'),
 ]
 
