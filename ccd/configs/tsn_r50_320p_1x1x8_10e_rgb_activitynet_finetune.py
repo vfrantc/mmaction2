@@ -7,7 +7,13 @@ _base_ = [
     '/content/mmaction2/configs/_base_/default_runtime.py'
 ]
 # model settings
-model = dict(cls_head=dict(num_classes=2, dropout_ratio=0.8)) # We inherit from tsn_r50 and change the number of classes, dropout_ratio is rather high
+model = dict(cls_head=dict(num_classes=2, dropout_ratio=0.8),
+    data_preprocessor=dict(
+            type='ActionDataPreprocessor',
+            mean=[123.675, 116.28, 103.53],
+            std=[58.395, 57.12, 57.375],
+            format_shape='NCHW')
+             ) # We inherit from tsn_r50 and change the number of classes, dropout_ratio is rather high
 
 # dataset settings
 dataset_type = 'RawframeDataset' # VideoDataset for videos
