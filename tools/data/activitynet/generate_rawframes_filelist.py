@@ -3,7 +3,7 @@ import json
 import os
 import os.path as osp
 
-data_file = '../../../data/ActivityNet'
+data_file = './data/ActivityNet'
 video_list = f'{data_file}/video_info_new.csv'
 anno_file = f'{data_file}/anet_anno_action.json'
 rawframe_dir = f'{data_file}/rawframes'
