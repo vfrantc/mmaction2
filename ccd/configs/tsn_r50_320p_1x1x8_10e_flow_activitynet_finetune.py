@@ -103,8 +103,8 @@ test_dataloader = dict(
         pipeline=test_pipeline,
         test_mode=True))
 
-evaluation = dict(
-    interval=5, metrics=['top_k_accuracy', 'mean_class_accuracy'])
+val_evaluator = dict(type='AccMetric')
+test_evaluator = val_evaluator
 
 # optimizer
 optimizer = dict(type='SGD', lr=0.001, momentum=0.9, weight_decay=0.0001)
