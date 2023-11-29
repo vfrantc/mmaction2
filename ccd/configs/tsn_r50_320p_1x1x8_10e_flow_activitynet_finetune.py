@@ -6,7 +6,13 @@ _base_ = ['/content/mmaction2/configs/_base_/models/tsn_r50.py',
 # ``in_channels`` should be 2 * clip_len
 model = dict(
     backbone=dict(in_channels=10),
-    cls_head=dict(num_classes=2, dropout_ratio=0.8))
+    cls_head=dict(num_classes=2, dropout_ratio=0.8),
+    data_preprocessor=dict(
+        type='ActionDataPreprocessor',
+        mean=[128, 128],
+        std=[128, 128],
+        format_shape='NCHW')
+)
 
 # dataset settings
 dataset_type = 'RawframeDataset'
@@ -15,7 +21,7 @@ data_root_val = 'data/ActivityNet/rawframes'
 ann_file_train = 'data/ActivityNet/anet_train_video.txt'
 ann_file_val = 'data/ActivityNet/anet_val_video.txt'
 ann_file_test = 'data/ActivityNet/anet_val_clip.txt'
-img_norm_cfg = dict(mean=[128, 128], std=[128, 128])
+# img_norm_cfg = dict(mean=[128, 128], std=[128, 128])
 train_pipeline = [
     dict(type='SampleFrames', clip_len=5, frame_interval=1, num_clips=8),
     dict(type='RawFrameDecode'),
