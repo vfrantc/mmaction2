@@ -1,4 +1,6 @@
-_base_ = ['/content/mmaction2/configs/_base_/models/tsn_r50.py', '/content/mmaction2/configs/_base_/default_runtime.py']
+_base_ = ['/content/mmaction2/configs/_base_/models/tsn_r50.py',
+          '/content/mmaction2/configs/_base_/schedules/sgd_50e.py',
+          '/content/mmaction2/configs/_base_/default_runtime.py']
 
 # model settings
 # ``in_channels`` should be 2 * clip_len
@@ -94,11 +96,11 @@ optimizer = dict(type='SGD', lr=0.001, momentum=0.9, weight_decay=0.0001)
 optimizer_config = dict(grad_clip=dict(max_norm=40, norm_type=2))
 # learning policy
 lr_config = dict(policy='step', step=[60, 120])
-total_epochs = 150
+total_epochs = 10
 
 # runtime settings
 checkpoint_config = dict(interval=5)
-work_dir = '/content/drive/MyDrive/3_Research_Replication/MMAction_V1/Our_Data/TSN_Files/flow_checkpoints/'
+work_dir = './flow_checkpoints/'
 load_from = ('https://download.openmmlab.com/mmaction/recognition/tsn/'
              'tsn_r50_320p_1x1x8_110e_kinetics400_flow/'
              'tsn_r50_320p_1x1x8_110e_kinetics400_flow_20200705-1f39486b.pth')
