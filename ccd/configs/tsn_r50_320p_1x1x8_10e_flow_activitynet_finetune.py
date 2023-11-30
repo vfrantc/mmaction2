@@ -20,7 +20,7 @@ data_root = 'data/ActivityNet/rawframes'
 data_root_val = 'data/ActivityNet/rawframes'
 ann_file_train = 'data/ActivityNet/anet_train_video.txt'
 ann_file_val = 'data/ActivityNet/anet_val_video.txt'
-ann_file_test = 'data/ActivityNet/anet_val_clip.txt'
+ann_file_test = 'data/ActivityNet/anet_val_video.txt'
 # img_norm_cfg = dict(mean=[128, 128], std=[128, 128])
 train_pipeline = [
     dict(type='SampleFrames', clip_len=1, frame_interval=1, num_clips=8),
