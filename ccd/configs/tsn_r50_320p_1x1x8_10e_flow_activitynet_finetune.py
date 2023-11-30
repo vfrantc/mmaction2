@@ -36,7 +36,7 @@ train_pipeline = [
 val_pipeline = [
     dict(
         type='SampleFrames',
-        clip_len=5,
+        clip_len=1,
         frame_interval=1,
         num_clips=8,
         test_mode=True),
@@ -50,7 +50,7 @@ val_pipeline = [
 test_pipeline = [
     dict(
         type='SampleFrames',
-        clip_len=5,
+        clip_len=1,
         frame_interval=1,
         num_clips=25,
         test_mode=True),
@@ -74,8 +74,7 @@ train_dataloader = dict(
         filename_tmpl='flow_{}_{:05d}.jpg',
         modality='Flow',
         start_index=0,
-        pipeline=train_pipeline,
-        test_mode=True))
+        pipeline=train_pipeline))
 
 val_dataloader = dict(
     batch_size=8,
