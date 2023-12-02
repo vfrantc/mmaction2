@@ -220,7 +220,7 @@ def merge_args(cfg, args):
             preprocessor_cfg = cfg.model.data_preprocessor
             preprocessor_cfg.type = 'LongVideoDataPreprocessor'
             #preprocessor_cfg['num_frames'] = clip_len
-            preprocessor_cfg['num_frames'] = 50
+            preprocessor_cfg['num_frames'] = 49
 
     # -------------------- Dump predictions --------------------
     args.dump = osp.join(args.output_prefix, 'total_feats.pkl')
