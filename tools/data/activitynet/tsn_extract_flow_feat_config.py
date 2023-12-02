@@ -20,7 +20,7 @@ test_pipeline = [
     dict(type='RawFrameDecode', **file_client_args),
     dict(type='Resize', scale=(-1, 256)),
     dict(type='CenterCrop', crop_size=256),
-    dict(type='FormatShape', input_format='NCHW_Flow'),
+    dict(type='FormatShape', input_format='NCHW_Flow'), # NCHW_Flow seems to be outdated
     dict(type='PackActionInputs')
 ]
 

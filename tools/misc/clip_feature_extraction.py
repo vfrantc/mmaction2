@@ -11,13 +11,15 @@ from mmengine.runner import Runner
 def parse_args():
     parser = argparse.ArgumentParser(
         description='MMAction2 feature extraction')
-    parser.add_argument('config', help='test config file path')
-    parser.add_argument('checkpoint', help='checkpoint file')
-    parser.add_argument('output_prefix', type=str, help='output prefix')
+    parser.add_argument('config', help='test config file path') # config of the model
+    parser.add_argument('checkpoint', help='checkpoint file')   # checkpoint of the model
+    parser.add_argument('output_prefix', type=str, help='output prefix') #
     parser.add_argument(
-        '--video-list', type=str, default=None, help='video file list')
+        '--video-list', type=str, default=None, help='video file list') # list of videos extracted from .json with the script
+    # where the videos are located
     parser.add_argument(
         '--video-root', type=str, default=None, help='video root directory')
+    # --spatial-type avg, max, keep
     parser.add_argument(
         '--spatial-type',
         type=str,
@@ -53,7 +55,7 @@ def parse_args():
     parser.add_argument(
         '--dump-score',
         action='store_true',
-        help='Dump predict scores rather than features')
+        help='Dump predict scores rather than features') # this is the key, it is not clear what features are??? Do they use
     parser.add_argument(
         '--cfg-options',
         nargs='+',

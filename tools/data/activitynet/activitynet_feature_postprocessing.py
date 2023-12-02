@@ -1,5 +1,6 @@
 # Copyright (c) OpenMMLab. All rights reserved.
-import argparse
+# So first we extract tsn features for each individual sequence, they supposed to the two confidence scores for each class
+import argparse #
 import multiprocessing
 import os
 import os.path as osp
@@ -13,31 +14,32 @@ args = None
 
 def parse_args():
     parser = argparse.ArgumentParser(description='ANet Feature Prepare')
-    parser.add_argument('--rgb', default='', help='rgb feature root')
-    parser.add_argument('--flow', default='', help='flow feature root')
-    parser.add_argument('--dest', default='', help='dest root')
-    parser.add_argument('--output-format', default='csv')
+    parser.add_argument('--rgb', default='', help='rgb feature root') # where the rgb data stored
+    parser.add_argument('--flow', default='', help='flow feature root') # optical flow, that is a folder with .pkl file for each individual video
+    parser.add_argument('--dest', default='', help='dest root') # where to store aggregated features
+    parser.add_argument('--output-format', default='csv')   # csv by default,
     args = parser.parse_args()
     return args
 
 
 def pool_feature(data, num_proposals=100, num_sample_bins=3, pool_type='mean'):
+    # It is not clear what they mean is a proposal
+    # So features could be of different length as different components have different lengh
     """Pool features with arbitrary temporal length.
 
     Args:
-        data (list[np.ndarray] | np.ndarray): Features of an untrimmed video,
-            with arbitrary temporal length.
+        data (list[np.ndarray] | np.ndarray): Features of an untrimmed video, with arbitrary temporal length.
         num_proposals (int): The temporal dim of pooled feature. Default: 100.
-        num_sample_bins (int): How many points to sample to get the feature
-            vector at one timestamp. Default: 3.
+        num_sample_bins (int): How many points to sample to get the feature vector at one timestamp. Default: 3.
         pool_type (str): Type of pooling to pool features. Choices are
             ['mean', 'max']. Default: 'mean'.
 
     Returns:
         np.ndarray: The pooled feature with shape num_proposals x feature_dim.
     """
+    # it seems that data are averaged or max-pooled
     if len(data) == 1:
-        return np.concatenate([data] * num_proposals)
+        return np.concatenate([data] * num_proposals) # repeat the same data num_proposals times
     x_range = list(range(len(data)))
     f = scipy.interpolate.interp1d(x_range, data, axis=0)
     eps = 1e-4
@@ -65,9 +67,10 @@ def pool_feature(data, num_proposals=100, num_sample_bins=3, pool_type='mean'):
 
 def merge_feat(name):
     # concatenate rgb feat and flow feat for a single sample
-    rgb_feat = load(osp.join(args.rgb, name))
-    flow_feat = load(osp.join(args.flow, name))
-    rgb_feat = pool_feature(rgb_feat)
+    # load and save are handled by the
+    rgb_feat = load(osp.join(args.rgb, name))       # rgb, name of the file???
+    flow_feat = load(osp.join(args.flow, name))     # flow, and name of the file
+    rgb_feat = pool_feature(rgb_feat)               # pool them seperately and then concatenate
     flow_feat = pool_feature(flow_feat)
     feat = np.concatenate([rgb_feat, flow_feat], axis=-1)
     if not osp.exists(args.dest):
