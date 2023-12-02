@@ -4,7 +4,7 @@ import os
 import os.path as osp
 
 data_file = './data/ActivityNet'
-video_list = f'{data_file}/video_info_new.csv'
+video_list = f'{data_file}/video_info.csv'
 anno_file = f'{data_file}/anet_anno_action.json'
 rawframe_dir = f'{data_file}/rawframes'
 action_name_list = './tools/data/activitynet/action_name.csv' # Two in our case
@@ -14,7 +14,7 @@ train_rawframe_dir = rawframe_dir
 val_rawframe_dir = rawframe_dir
 
 # The dataset labeling
-json_file = f'{data_file}/activity_net.v1-3.min.json'
+json_file = f'{data_file}/activity_net.v1-3.json'
 
 
 def generate_rawframes_filelist():
