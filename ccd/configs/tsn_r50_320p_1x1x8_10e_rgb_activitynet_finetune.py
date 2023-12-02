@@ -3,7 +3,7 @@
 
 
 _base_ = [
-    '/content/mmaction2/configs/_base_/models/tsn_r50.py', '/content/mmaction2/configs/_base_/schedules/sgd_10e.py',
+    '/content/mmaction2/configs/_base_/models/tsn_r50.py', '/content/mmaction2/configs/_base_/schedules/sgd_50e.py',
     '/content/mmaction2/configs/_base_/default_runtime.py'
 ]
 # model settings
@@ -109,7 +109,6 @@ test_evaluator = val_evaluator
 
 # optimizer
 optimizer = dict(type='SGD', lr=0.001, momentum=0.9, weight_decay=0.0001)
-total_epochs = 10
 
 # runtime settings
 work_dir = './rgb_checkpoints/'
