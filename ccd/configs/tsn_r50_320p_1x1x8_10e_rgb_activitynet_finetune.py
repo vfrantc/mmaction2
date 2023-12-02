@@ -3,7 +3,7 @@
 
 
 _base_ = [
-    '/content/mmaction2/configs/_base_/models/tsn_r50.py', '/content/mmaction2/configs/_base_/schedules/sgd_50e.py',
+    '/content/mmaction2/configs/_base_/models/tsn_r50.py', '/content/mmaction2/configs/_base_/schedules/sgd_10e.py',
     '/content/mmaction2/configs/_base_/default_runtime.py'
 ]
 # model settings
