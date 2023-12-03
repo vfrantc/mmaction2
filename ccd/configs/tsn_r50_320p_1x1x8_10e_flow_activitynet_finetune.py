@@ -73,7 +73,7 @@ train_dataloader = dict(
         data_prefix=dict(img=data_root),
         filename_tmpl='flow_{}_{:05d}.jpg',
         modality='Flow',
-        start_index=0,
+        start_index=1,
         pipeline=train_pipeline))
 
 val_dataloader = dict(
@@ -87,7 +87,7 @@ val_dataloader = dict(
         data_prefix=dict(img=data_root_val),
         filename_tmpl='flow_{}_{:05d}.jpg',
         modality='Flow',
-        start_index=0,
+        start_index=1,
         pipeline=val_pipeline,
         test_mode=True),
 )
@@ -104,7 +104,7 @@ test_dataloader = dict(
         filename_tmpl='flow_{}_{:05d}.jpg',
         with_offset=True,
         modality='Flow',
-        start_index=0,
+        start_index=1,
         pipeline=test_pipeline,
         test_mode=True))
 

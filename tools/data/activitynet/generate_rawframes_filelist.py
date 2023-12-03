@@ -44,7 +44,7 @@ def generate_rawframes_filelist():
                 img_files_num = len([f for f in files if f.startswith('img_')])
                 flowx_files_num = len([f for f in files if f.startswith('flow_x')])
                 flowy_files_num = len([f for f in files if f.startswith('flow_y')])
-                num_frames = min([img_files_num, flowx_files_num, flowy_files_num])
+                num_frames = min([img_files_num, flowx_files_num, flowy_files_num]) - 1
                 return osp.basename(dir_name), num_frames
         return None, None
 
