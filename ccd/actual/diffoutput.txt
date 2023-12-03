@@ -1,0 +1,28 @@
+22c22
+< load_from = './models/tsn_r50_320p_1x1x8_50e_flow_activitynet_finetune.pth'
+---
+> load_from = './models/tsn_r50_320p_1x1x8_10e_flow_activitynet_finetune.pth'
+80c80
+<         ann_file='/content/mmaction2/data/ActivityNet/anet_train_video.txt',
+---
+>         ann_file='/content/mmaction2/data/ActivityNet/anet_val_video.txt',
+101c101
+<         start_index=1,
+---
+>         start_index=0,
+110c110
+<         out_file_path='./features/flow_train_feat.pkl/total_feats.pkl',
+---
+>         out_file_path='./features/flow_val_feat.pkl/total_feats.pkl',
+157c157
+<         start_index=1,
+---
+>         start_index=0,
+202c202
+<         start_index=1,
+---
+>         start_index=0,
+232c232
+< work_dir = './features/flow_train_feat.pkl/work_dir'
+---
+> work_dir = './features/flow_val_feat.pkl/work_dir'
