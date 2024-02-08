@@ -1,4 +1,4 @@
-_base_ = ['/content/mmaction2/configs/_base_/models/tsm_r50.py', '/content/mmaction2/configs/_base_/default_runtime.py']
+_base_ = ['tsm_r50.py', '/content/mmaction2/configs/_base_/default_runtime.py']
 
 # dataset settings
 dataset_type = 'VideoDataset'
