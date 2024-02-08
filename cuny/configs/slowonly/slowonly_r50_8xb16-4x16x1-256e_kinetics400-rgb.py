@@ -1,5 +1,5 @@
 _base_ = [
-    '../../_base_/models/slowonly_r50.py', '../../_base_/default_runtime.py'
+    '/content/mmaction2/configs/_base_/models/slowonly_r50.py', '/content/mmaction2/configs/_base_/default_runtime.py'
 ]
 
 # model settings

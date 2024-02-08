@@ -1,5 +1,5 @@
 _base_ = [
-    '../../_base_/models/mvit_small.py', '../../_base_/default_runtime.py'
+    './mvit_small.py', '/content/mmaction2/configs/_base_/default_runtime.py'
 ]
 
 model = dict(

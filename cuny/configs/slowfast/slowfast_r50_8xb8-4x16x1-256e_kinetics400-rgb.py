@@ -1,5 +1,5 @@
 _base_ = [
-    '../../_base_/models/slowfast_r50.py', '../../_base_/default_runtime.py'
+    'slowfast_r50.py', '/content/mmaction2/configs/default_runtime.py'
 ]
 
 #change base directory
