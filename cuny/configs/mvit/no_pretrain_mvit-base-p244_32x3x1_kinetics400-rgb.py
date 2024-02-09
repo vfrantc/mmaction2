@@ -78,8 +78,8 @@ test_pipeline = [
 
 repeat_sample = 2
 train_dataloader = dict(
-    batch_size=4,
-    num_workers=8,
+    batch_size=2,
+    num_workers=2,
     persistent_workers=True,
     sampler=dict(type='DefaultSampler', shuffle=True),
     collate_fn=dict(type='repeat_pseudo_collate'),
@@ -91,8 +91,8 @@ train_dataloader = dict(
         data_prefix=dict(video=data_root),
         pipeline=train_pipeline))
 val_dataloader = dict(
-    batch_size=4,
-    num_workers=8,
+    batch_size=2,
+    num_workers=2,
     persistent_workers=True,
     sampler=dict(type='DefaultSampler', shuffle=False),
     dataset=dict(
