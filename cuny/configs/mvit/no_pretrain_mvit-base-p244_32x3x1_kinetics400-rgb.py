@@ -141,7 +141,7 @@ param_scheduler = [
         T_max=50,
         eta_min=base_lr / 100,
         by_epoch=True,
-        begin=30,
+        begin=11,
         end=50,
         convert_to_iter_based=True)
 ]
