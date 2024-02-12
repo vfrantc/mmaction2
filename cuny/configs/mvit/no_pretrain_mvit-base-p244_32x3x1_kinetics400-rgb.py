@@ -78,7 +78,7 @@ test_pipeline = [
 
 repeat_sample = 2
 train_dataloader = dict(
-    batch_size=2,
+    batch_size=8,
     num_workers=2,
     persistent_workers=True,
     sampler=dict(type='DefaultSampler', shuffle=True),
@@ -134,15 +134,15 @@ param_scheduler = [
         start_factor=0.01,
         by_epoch=True,
         begin=0,
-        end=30,
+        end=10,
         convert_to_iter_based=True),
     dict(
         type='CosineAnnealingLR',
-        T_max=200,
+        T_max=50,
         eta_min=base_lr / 100,
         by_epoch=True,
         begin=30,
-        end=200,
+        end=50,
         convert_to_iter_based=True)
 ]
 
