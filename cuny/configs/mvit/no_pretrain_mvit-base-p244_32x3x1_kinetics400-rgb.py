@@ -15,8 +15,8 @@ model = dict(
         blending=dict(
             type='RandomBatchAugment',
             augments=[
-                dict(type='MixupBlending', alpha=0.8, num_classes=400),
-                dict(type='CutmixBlending', alpha=1, num_classes=400)
+                dict(type='MixupBlending', alpha=0.8, num_classes=2),
+                dict(type='CutmixBlending', alpha=1, num_classes=2)
             ]),
         format_shape='NCTHW'),
 )
